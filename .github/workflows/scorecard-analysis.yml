@@ -3,9 +3,9 @@ on:
   push:
     # Only the default branch is supported.
     branches: [main, master]
-  pull_request:
+ # pull_request:
     # All branches are supported.
-    branches: [main]
+  #  branches: [main]
 
 permissions: read-all
 
@@ -25,12 +25,13 @@ jobs:
         # We will remove the use of container and
         # pin the dependency by hash.
         # https://github.com/ossf/scorecard/issues/1072. 
-        uses: ossf/scorecard-actions/analyze@feat/analyze
+        uses: ossf/scorecard-action@5fc8ff3ee41559cbd1079b561414c8fe3272afab
         with:
           policy_file: .github/scorecard-policy.yml
           results_file: results.sarif
           results_format: sarif
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          share_results: true
 
       # https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
       # Optional.
