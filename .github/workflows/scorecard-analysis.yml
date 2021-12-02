@@ -31,6 +31,11 @@ jobs:
           results_file: results.sarif
           results_format: sarif
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          # Scorecard team runs a weekly scan of public GitHub repos,
+          # see https://github.com/ossf/scorecard#public-data.
+          # Setting `share_results: true` helps us scale by leveraging your workflow to
+          # extract the results instead of relying on our own infrastructure to run scans.
+          # It's free for you!
           share_results: true
 
       # https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
