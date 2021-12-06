@@ -25,12 +25,15 @@ jobs:
         # We will remove the use of container and
         # pin the dependency by hash.
         # https://github.com/ossf/scorecard/issues/1072. 
-        uses: ossf/scorecard-actions/analyze@feat/analyze
+        uses: ossf/scorecard-action@feat/rempol
         with:
-          policy_file: .github/scorecard-policy.yml
           results_file: results.sarif
           results_format: sarif
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.SCORECARD_TOKEN }}
+          #repo_token: ${{ secrets.GITHUB_TOKEN }}
+          # To enable scoercard badges, the results need to be shared with
+          # the scorecard team to generate the badges.
+          badge_support: true
 
       # https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
       # Optional.
