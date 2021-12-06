@@ -3,9 +3,9 @@ on:
   push:
     # Only the default branch is supported.
     branches: [main, master]
- # pull_request:
+  pull_request:
     # All branches are supported.
-  #  branches: [main]
+    branches: [main]
 
 permissions: read-all
 
@@ -25,19 +25,15 @@ jobs:
         # We will remove the use of container and
         # pin the dependency by hash.
         # https://github.com/ossf/scorecard/issues/1072. 
-        uses: ossf/scorecard-action@5fc8ff3ee41559cbd1079b561414c8fe3272afab
+        uses: ossf/scorecard-action@feat/rempol
         with:
-          policy_file: .github/scorecard-policy.yml
           results_file: results.sarif
           results_format: sarif
           repo_token: ${{ secrets.SCORECARD_TOKEN }}
           #repo_token: ${{ secrets.GITHUB_TOKEN }}
-          # Scorecard team runs a weekly scan of public GitHub repos,
-          # see https://github.com/ossf/scorecard#public-data.
-          # Setting `share_results: true` helps us scale by leveraging your workflow to
-          # extract the results instead of relying on our own infrastructure to run scans.
-          # It's free for you!
-          share_results: true
+          # To enable scoercard badges, the results need to be shared with
+          # the scorecard team to generate the badges.
+          badge_support: true
 
       # https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
       # Optional.
