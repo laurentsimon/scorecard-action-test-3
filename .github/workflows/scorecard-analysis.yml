@@ -1,11 +1,15 @@
 name: Scorecard analysis
 on: 
+  # Only the default branch is supported.
   branch_protection_rule:
+  schedule:
+    # Weekly on Saturdays.
+    - cron: '30 1 * * 6'
   push:
-    # Only the default branch is supported.
     branches: [main, master]
+  
+  # All branches are supported.
   pull_request:
-    # All branches are supported.
     branches: [main, master]
 
 permissions: read-all
