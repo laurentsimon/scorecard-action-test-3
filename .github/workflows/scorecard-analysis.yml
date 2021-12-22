@@ -30,7 +30,7 @@ jobs:
         # We will remove the use of container and
         # pin the dependency by hash.
         # https://github.com/ossf/scorecard/issues/1072. 
-        uses: ossf/scorecard-action@feat/rempol
+        uses: ossf/scorecard-action@latest
         with:
           results_file: results.sarif
           results_format: sarif
