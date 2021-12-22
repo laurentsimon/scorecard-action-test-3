@@ -35,10 +35,7 @@ jobs:
           results_file: results.sarif
           results_format: sarif
           repo_token: ${{ secrets.SCORECARD_TOKEN }}
-          #repo_token: ${{ secrets.GITHUB_TOKEN }}
-          # To enable scoercard badges, the results need to be shared with
-          # the scorecard team to generate the badges.
-          badge_support: true
+          publish_results: true
 
       # https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
       # Optional.
