@@ -26,11 +26,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: "Run analysis"
-        # This is temporary for dogfooding.
-        # We will remove the use of container and
-        # pin the dependency by hash.
-        # https://github.com/ossf/scorecard/issues/1072. 
-        uses: ossf/scorecard-action@main
+        uses: ossf/scorecard-action@test/dogfoodv2
         with:
           results_file: results.sarif
           results_format: sarif
