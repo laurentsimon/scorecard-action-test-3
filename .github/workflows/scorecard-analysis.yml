@@ -33,8 +33,7 @@ jobs:
         with:
           results_file: results.sarif
           results_format: sarif
-          repo_token: ${{ secrets.SCORECARD_TOKEN }}
-          publish_results: ${{ !github.event.repository.private }}
+          publish_results: true
 
       # https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
       # Optional.
